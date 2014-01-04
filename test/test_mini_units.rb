@@ -24,9 +24,9 @@ class TestCheersMiniTest < MiniTest::Unit::TestCase
    assert_equal( cal.zeller("january", 1).downcase, "sunday" )
   end
 
-  def test_05_if_month_has_6_weeks_zeller
-   cal = Calendar.new( 09, 2012 ) #calender.new(month, year)
-   assert_equal( cal.zeller("january", 1).downcase, "sunday" )
-  end
+  # def test_05_if_month_has_6_weeks_zeller
+  #  cal = Calendar.new( 09, 2012 ) #calender.new(month, year)
+  #  assert_equal( cal.zeller("january", 1).downcase, "sunday" )
+  # end
 
 end
