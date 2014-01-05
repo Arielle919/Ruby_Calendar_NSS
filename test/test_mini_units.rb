@@ -2,7 +2,7 @@ require_relative '../cal.rb'
 require "minitest/autorun"
 
 
-class TestCheersMiniTest < MiniTest::Unit::TestCase
+class TestCalMiniTest < MiniTest::Unit::TestCase
 
   def test_01_find_day_of_month_zeller
    cal = Calendar.new( 5, 2013 ) #calender.new(month, year)
