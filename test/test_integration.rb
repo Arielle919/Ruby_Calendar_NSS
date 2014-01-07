@@ -4,7 +4,7 @@ require "minitest/autorun"
 class TestCalIntegration < MiniTest::Unit::TestCase
 
   def test_February_is_leap_year
-    shell_output = `ruby cal.rb February 2000`
+    shell_output = `ruby cal.rb 02 2000`
     expected_output = <<EOS
     February 2000
 Su Mo Tu We Th Fr Sa
@@ -18,7 +18,7 @@ EOS
   end
 
   def test_February_is_not_leap_year
-    shell_output = `ruby cal.rb February 2015`
+    shell_output = `ruby cal.rb 02 2015`
     expected_output = <<EOS
     February 2015
 Su Mo Tu We Th Fr Sa
@@ -31,7 +31,7 @@ EOS
   end
 
   def test_month_has_31_days
-    shell_output = `ruby cal.rb January 2014`
+    shell_output = `ruby cal.rb 01 2014`
     expected_output = <<EOS
     January 2014
 Su Mo Tu We Th Fr Sa
@@ -45,7 +45,7 @@ EOS
   end
 
   def test_month_has_30_days
-    shell_output = `ruby cal.rb April 2014`
+    shell_output = `ruby cal.rb 05 2014`
     expected_output = <<EOS
     April 2014
 Su Mo Tu We Th Fr Sa
