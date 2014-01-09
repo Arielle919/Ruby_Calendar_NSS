@@ -102,7 +102,7 @@ year = ARGV[1]
   elsif month == months[2] && "#{year}".to_i % 400 != 0 && "#{year}".to_i % 4 != 0
     print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n"
   elsif month == months[2] && "#{year}".to_i % 4 == 0 && "#{year}".to_i % 400 != 0
-    print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29\n"
+    print "\nSu Mo Tu We Th Fr Sa\n         1  2  3  4\n5  6  7  8  9  10 11\n12 13 14 15 16 17 18\n19 20 21 22 23 24 25\n26 27 28 29\n"
   elsif month == months[2] && "#{year}".to_i % 400 == 0 && "#{year}".to_i % 4 == 0
     print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29\n"
   elsif month == months[4]#April
