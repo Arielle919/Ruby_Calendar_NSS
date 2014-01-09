@@ -30,12 +30,8 @@ class Calendar
   end
 
 end
- # string_to_change.gsub!(/s/, "th")
- # arr = ["This is some sample text", "text file"]
- # => ["This is some sample text", "text file"]
 
- # arr = arr.map {|s| s.gsub(/text/, 'document')}
- # => ["This is some sample document", "document file"]
+#months code
 
 months = ["0", "01","02", "03", "04", "05", "06", "07", "08", "09", "10", "11","12"]
 if ARGV[0] == months[1]
@@ -75,11 +71,7 @@ if ARGV[0] == months[12]
   print "December #{year}".center(20)
 end
 
-
-# if "#{year}".to_i % 400 == 0 || "#{year}".to_i % 4 == 0 || ARGV[0] == months[2]
-#   print "                     \nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29\n"
-# end
-
+#days code
 if month == months[1]#January
   print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29 30 31\n"
 elsif month == months[3]#march
@@ -94,10 +86,10 @@ elsif month == months[10]#october
   print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29 30 31\n"
 elsif month == months[12]#december
   print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29 30 31\n"
-# elsif "#{year}".to_i % 400 != 0 && "#{year}".to_i % 4 != 0 && ARGV[0] == months[2]
-#   print "     #{year}  \nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n"
-elsif month == months[2]#February No Leap
+elsif month == months[2] && "#{year}".to_i % 400 != 0 && "#{year}".to_i % 4 != 0
   print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n"
+elsif month == months[2] && "#{year}".to_i % 400 == 0 && "#{year}".to_i % 4 == 0
+  print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29\n"
 elsif month == months[4]#April
   print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29 30\n"
 elsif month == months[6]#June
@@ -109,6 +101,12 @@ elsif month == months[11]#November
 else
 
 end
+
+# if ARGV[0] == months[2] && "#{year}".to_i % 400 == 0 && "#{year}".to_i % 4 == 0
+#   print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29\n"
+# else
+#   !print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29\n"
+# end
 
 
 
