@@ -1,3 +1,6 @@
+# ARGV[0] = month
+# ARGV[1] = year
+
 class Zeller_work
   attr_reader :month, :year
 
@@ -24,7 +27,8 @@ class Zeller_work
     x = yr / 100
     formula = (h + (((13*mo) - 1) / 5).floor + k + (k/4).floor + (x/4).floor - (2*x)) % 7
     weekdays[formula]
-    print weekdays[formula]
+    first_day = weekdays[formula]
+    print first_day
   end
 
 end

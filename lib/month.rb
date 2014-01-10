@@ -1,3 +1,4 @@
+
 class Month_work
 
 attr_reader :year, :month
@@ -8,7 +9,25 @@ attr_reader :year, :month
   end
 
   def display
-    puts "print from month.rb"
+    months = ["0", "January","February", "March", "April", "May",
+   "June", "July", "August", "September", "October", "November","December"]
+
+   #  if month == months[2] && "#{year}".to_i % 400 != 0 && "#{year}".to_i % 4 != 0
+   #    print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n"
+   #  elsif month == months[2] && "#{year}".to_i % 4 == 0 && "#{year}".to_i % 400 != 0
+   #    print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29\n"
+   #  elsif month == months[2] && "#{year}".to_i % 400 == 0 && "#{year}".to_i % 4 == 0
+   #    print "\nSu Mo Tu We Th Fr Sa\n1  2  3  4  5  6  7\n8  9  10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29\n"
+   #  else
+
+   #  end
+    if @month == months[2]
+      print "this is month and year"
+    else
+      print"no month"
+    end
+
+
   end
 
 end
