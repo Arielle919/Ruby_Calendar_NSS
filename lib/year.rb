@@ -1,6 +1,6 @@
 require_relative 'month'
 
-class Year
+class Year_work
   attr_reader :month, :year
 
   def initialize(month, year)

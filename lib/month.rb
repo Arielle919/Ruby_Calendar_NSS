@@ -1,4 +1,4 @@
-class Calendar_work
+class Month_work
 
 attr_reader :year, :month
 
@@ -8,7 +8,7 @@ attr_reader :year, :month
   end
 
   def display
-    puts "month"
+    puts "print from month.rb"
   end
 
 end
