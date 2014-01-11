@@ -1,3 +1,4 @@
+require_relative 'zeller'
 class Month_work
 
 attr_reader :year, :month
@@ -7,12 +8,34 @@ attr_reader :year, :month
     @year = year
   end
 
-  def display_February
-    months = ["0", "January","February", "March", "April", "May",
-   "June", "July", "August", "September", "October", "November","December"]
+  def zeller(month, day)
+    months = ["march", "april", "may", "june", "july", "august", "september", "october", "november", "december", "january", "february"]
+    weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    h = day
+    mo = months.index(month.downcase) + 1 #makes 12 months
+    yr = (mo <= 10) ? year : year-1
+    k = yr % 100
+    x = yr / 100
+    formula = (h + (((13*mo) - 1) / 5).floor + k + (k/4).floor + (x/4).floor - (2*x)) % 7
+    weekdays[formula]
+    first_day = weekdays[formula]
+    print first_day
+  end
 
-    if month == months[2] && "#{year}".to_i % 400 != 0 && "#{year}".to_i % 4 != 0
-      print "#{month} #{year}".center(20)+"\nSu Mo Tu We Th Fr Sa\n"
+  def self.month_names
+    months = ["0", "01","02", "03", "04", "05",
+   "06", "07", "08", "09", "10", "11","12"]
+  end
+
+  def display_February
+    @month_list = Month_work.month_names
+
+    if ARGV[0] == month_list[2]
+      print "February #{year}".center(20)
+    end
+
+    if month == month_list[2] && "#{year}".to_i % 400 != 0 && "#{year}".to_i % 4 != 0
+      print"\nSu\sMo\sTu\sWe\sTh\sFr\sSa\n"
         i = 0
         loop do
           i += 1
@@ -40,8 +63,8 @@ attr_reader :year, :month
           print "#{i}".center(3)
           break if i >= 28
         end
-    elsif month == months[2] && "#{year}".to_i % 4 == 0 && "#{year}".to_i % 400 != 0
-      print "#{month} #{year}".center(20)+"\nSu Mo Tu We Th Fr Sa\n"
+    elsif month == month_list[2] && "#{year}".to_i % 4 == 0 && "#{year}".to_i % 400 != 0
+      print "\nSu\sMo\sTu\sWe\sTh\sFr\sSa\n"
         i = 0
         loop do
           i += 1
@@ -76,8 +99,8 @@ attr_reader :year, :month
           print "#{i}".center(3)
           break if i >= 29
         end
-    elsif month == months[2] && "#{year}".to_i % 400 == 0 && "#{year}".to_i % 4 == 0
-      print "#{month} #{year}".center(20)+"\nSu Mo Tu We Th Fr Sa\n"
+    elsif month == month_list[2] && "#{year}".to_i % 400 == 0 && "#{year}".to_i % 4 == 0
+      print "\nSu\sMo\sTu\sWe\sTh\sFr\sSa\n"
         i = 0
         loop do
           i += 1
@@ -118,9 +141,45 @@ attr_reader :year, :month
   end
 
   def display_reg_months
-    case month
-      when "January", "March", "May", "July", "August", "October","December"
-        print "#{month} #{year}".center(20)+"\nSu Mo Tu We Th Fr Sa\n"
+    month_list = Month_work.month_names
+
+    if ARGV[0] == month_list[1]
+     print "January #{year}".center(20)
+   end
+   if ARGV[0] == month_list[3]
+     print "March #{year}".center(20)
+   end
+   if ARGV[0] == month_list[4]
+     print "April #{year}".center(20)
+   end
+   if ARGV[0] == month_list[5]
+    print "May #{year}".center(20)
+   end
+   if ARGV[0] == month_list[6]
+     print "June #{year}".center(20)
+   end
+   if ARGV[0] == month_list[7]
+     print "July #{year}".center(20)
+   end
+   if ARGV[0] == month_list[8]
+     print "August #{year}".center(20)
+   end
+   if ARGV[0] == month_list[9]
+     print "September #{year}".center(20)
+   end
+   if ARGV[0] == month_list[10]
+     print "October #{year}".center(20)
+   end
+   if ARGV[0] == month_list[11]
+     print "November #{year}".center(20)
+ end
+   if ARGV[0] == month_list[12]
+     print "December #{year}".center(20)
+   end
+
+    case ARGV[0]
+      when "01", "03", "05", "07", "08", "10","12"
+        print "\nSu\sMo\sTu\sWe\sTh\sFr\sSa\n"
         i = 0
         loop do
           i += 1
@@ -155,8 +214,8 @@ attr_reader :year, :month
           print "#{i}".center(3)
           break if i >= 31
         end
-      when "April","June","September","November"
-              print "#{month} #{year}".center(20)+"\nSu Mo Tu We Th Fr Sa\n"
+      when "04","06","06","11"
+        print"\nSu\sMo\sTu\sWe\sTh\sFr\sSa\n"
         i = 0
         loop do
           i += 1
