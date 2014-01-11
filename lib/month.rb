@@ -8,27 +8,17 @@ attr_reader :year, :month
     @year = year
   end
 
-  def zeller(month, day)
-    months = ["march", "april", "may", "june", "july", "august", "september", "october", "november", "december", "january", "february"]
-    weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    h = day
-    mo = months.index(month.downcase) + 1 #makes 12 months
-    yr = (mo <= 10) ? year : year-1
-    k = yr % 100
-    x = yr / 100
-    formula = (h + (((13*mo) - 1) / 5).floor + k + (k/4).floor + (x/4).floor - (2*x)) % 7
-    weekdays[formula]
-    first_day = weekdays[formula]
-    print first_day
-  end
-
   def self.month_names
     months = ["0", "01","02", "03", "04", "05",
-   "06", "07", "08", "09", "10", "11","12"]
+    "06", "07", "08", "09", "10", "11","12"]
   end
 
   def display_February
     month_list = Month_work.month_names
+
+    zeller_class = Zeller_work.new(month, year) #pull the class
+    first_day = zeller_class.zeller(month,1)#pull method from class
+    # puts zeller_formula_method #outputs WEDS ..day of the week 01, 2014 starts ON
 
     if ARGV[0] == month_list[2]
       print "February #{year}".center(20)
@@ -144,38 +134,38 @@ attr_reader :year, :month
     month_list = Month_work.month_names
 
     if ARGV[0] == month_list[1]
-     print "January #{year}".center(20)
-   end
-   if ARGV[0] == month_list[3]
-     print "March #{year}".center(20)
-   end
-   if ARGV[0] == month_list[4]
-     print "April #{year}".center(20)
-   end
-   if ARGV[0] == month_list[5]
-    print "May #{year}".center(20)
-   end
-   if ARGV[0] == month_list[6]
-     print "June #{year}".center(20)
-   end
-   if ARGV[0] == month_list[7]
-     print "July #{year}".center(20)
-   end
-   if ARGV[0] == month_list[8]
-     print "August #{year}".center(20)
-   end
-   if ARGV[0] == month_list[9]
-     print "September #{year}".center(20)
-   end
-   if ARGV[0] == month_list[10]
-     print "October #{year}".center(20)
-   end
-   if ARGV[0] == month_list[11]
-     print "November #{year}".center(20)
- end
-   if ARGV[0] == month_list[12]
-     print "December #{year}".center(20)
-   end
+      print "January #{year}".center(20)
+    end
+    if ARGV[0] == month_list[3]
+      print "March #{year}".center(20)
+    end
+    if ARGV[0] == month_list[4]
+      print "April #{year}".center(20)
+    end
+    if ARGV[0] == month_list[5]
+      print "May #{year}".center(20)
+    end
+    if ARGV[0] == month_list[6]
+      print "June #{year}".center(20)
+    end
+    if ARGV[0] == month_list[7]
+      print "July #{year}".center(20)
+    end
+    if ARGV[0] == month_list[8]
+      print "August #{year}".center(20)
+    end
+    if ARGV[0] == month_list[9]
+      print "September #{year}".center(20)
+    end
+    if ARGV[0] == month_list[10]
+      print "October #{year}".center(20)
+    end
+    if ARGV[0] == month_list[11]
+      print "November #{year}".center(20)
+    end
+    if ARGV[0] == month_list[12]
+      print "December #{year}".center(20)
+    end
 
     case ARGV[0]
       when "01", "03", "05", "07", "08", "10","12"
@@ -251,8 +241,8 @@ attr_reader :year, :month
           break if i >= 30
         end
       else
-      print "this is not a reg month"
-    end
+        print "this is not a regular month"
+      end
   end
 
 end

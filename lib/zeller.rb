@@ -1,8 +1,18 @@
-# ARGV[0] = month
-# ARGV[1] = year
-
 class Zeller_work
   attr_reader :month, :year
+     months = ["march", "april", "may", "june", "july", "august", "september", "october", "november", "december", "january", "february"]
+     months[0] == "03"
+     months[1] == "04"
+     months[2] == "05"
+     months[3] == "06"
+     months[4] == "07"
+     months[5] == "08"
+     months[6] == "09"
+     months[7] == "10"
+     months[8] == "11"
+     months[9] == "12"
+     months[10] == "13"
+     months[11] == "14"
 
   def initialize(month, year)
     @month = month
@@ -28,7 +38,7 @@ class Zeller_work
     formula = (h + (((13*mo) - 1) / 5).floor + k + (k/4).floor + (x/4).floor - (2*x)) % 7
     weekdays[formula]
     first_day = weekdays[formula]
-    print first_day
+    return first_day
   end
 
 end
