@@ -28,7 +28,7 @@ attr_reader :year, :month
   end
 
   def display_February
-    @month_list = Month_work.month_names
+    month_list = Month_work.month_names
 
     if ARGV[0] == month_list[2]
       print "February #{year}".center(20)
@@ -251,7 +251,7 @@ attr_reader :year, :month
           break if i >= 30
         end
       else
-      print "this is not a month"
+      print "this is not a reg month"
     end
   end
 
