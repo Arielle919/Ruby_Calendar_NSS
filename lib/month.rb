@@ -25,7 +25,41 @@ attr_reader :year, :month
   def display_reg_months
     case month
       when "January", "March", "May", "July", "August", "October","December"
-        print "#{month}".center(20) + "\nSu Mo Tu We Th Fr Sa\n 1  2  3  4  5  6  7\n 8  9 10 11 12 13 14\n15 16 17 18 19 20 21\n22 23 24 25 26 27 28\n29 30 31\n"
+        print "#{month} #{year}".center(20)+"\nSu Mo Tu We Th Fr Sa\n"
+        i = 0
+        loop do
+          i += 1
+          print "#{i}".center(3)
+          break if i >= 7
+        end
+        print "\n"
+        i = 7
+        loop do
+          i += 1
+          print "#{i}".center(3)
+          break if i >= 14
+        end
+        print "\n"
+        i = 14
+        loop do
+          i += 1
+          print "#{i}".center(3)
+          break if i >= 21
+        end
+        print "\n"
+        i = 21
+        loop do
+          i += 1
+          print "#{i}".center(3)
+          break if i >= 28
+        end
+        print "\n"
+        i = 28
+        loop do
+          i += 1
+          print "#{i}".center(3)
+          break if i >= 31
+        end
       when "April","June","September","November"
         print "#{month}".center(20) + "\nSu Mo Tu We Th Fr Sa\n 1  2  3  4  5  6  7\n 8  9  10 11 12 13 14\n 15 16 17 18 19 20 21\n 22 23 24 25 26 27 28\n 29 30\n"
       else
