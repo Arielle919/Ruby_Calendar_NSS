@@ -15,10 +15,10 @@ class Zeller_work
   end
 
   def zeller(month, day)
-    months = ["march", "april", "may", "june", "july", "august", "september", "october", "november", "december", "january", "february"]
+    months = ["03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "01", "02"]
     weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     h = day
-    mo = months.index(month.downcase) + 1 #makes 12 months
+    mo = months.index(month) + 1 #makes 12 months
     yr = (mo <= 10) ? year : year-1
     k = yr % 100
     x = yr / 100

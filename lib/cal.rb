@@ -18,8 +18,8 @@ year = ARGV[1]
   #   display_month_method = month_class.display_reg_months
   #   print display_month_method
   elsif ARGV.length == 2
-    zeller_class = Zeller_work.new(02, 2014) #pull the class
-    zeller_formula_method = zeller_class.zeller(month,1)#pull method from class
+    zeller_class = Month_work.new(02, 2014) #pull the class
+    zeller_formula_method = zeller_class.use_zeller(month,1)#pull method from class
     puts zeller_formula_method #outputs WEDS ..day of the week 01, 2014 starts ON
   else
     print "Month and Year or Year needed"

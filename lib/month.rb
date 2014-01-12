@@ -13,11 +13,16 @@ attr_reader :year, :month
     "06", "07", "08", "09", "10", "11","12"]
   end
 
+  def use_zeller(month, day)
+    zeller_class = Zeller_work.new(02, 2014) #pull the class input correct # of parameters ..not just anything...
+    first_day = zeller_class.zeller(month,1)#pull method from class
+    print first_day
+    # puts first_day #outputs WEDS ..day of the week 01, 2014 starts ON
+  end
+
   def display_February
     month_list = Month_work.month_names
-
-    # zeller_class = Zeller_work.new(month, year)
-    # first_day = zeller_class.zeller(month,1)
+    # day_one = Month_work.use_zeller
 
     if ARGV[0] == month_list[2]
       print "February #{year}".center(20)
