@@ -16,9 +16,8 @@ attr_reader :year, :month
   def display_February
     month_list = Month_work.month_names
 
-    zeller_class = Zeller_work.new(month, year) #pull the class
-    first_day = zeller_class.zeller(month,1)#pull method from class
-    # puts zeller_formula_method #outputs WEDS ..day of the week 01, 2014 starts ON
+    # zeller_class = Zeller_work.new(month, year)
+    # first_day = zeller_class.zeller(month,1)
 
     if ARGV[0] == month_list[2]
       print "February #{year}".center(20)
