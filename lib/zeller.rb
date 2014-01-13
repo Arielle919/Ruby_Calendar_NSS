@@ -15,6 +15,7 @@ class Zeller_work
   end
 
   def zeller(month, day)
+    #03 = jan, 04 = feb
     months = ["03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "01", "02"]
     weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     h = day
@@ -23,8 +24,9 @@ class Zeller_work
     k = yr % 100
     x = yr / 100
     formula = (h + (((13*mo) - 1) / 5).floor + k + (k/4).floor + (x/4).floor - (2*x)) % 7
-    weekdays[formula]
-    first_day = weekdays[formula]
+    # weekdays[formula]
+    # first_day = weekdays[formula]
+    print formula
 
 
   end

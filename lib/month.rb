@@ -11,18 +11,21 @@ attr_reader :year, :month
   def self.month_names
     months = ["0", "01","02", "03", "04", "05",
     "06", "07", "08", "09", "10", "11","12"]
-  end
+    # months = ["03", "04", "05", "06", "07", "08",
+    #  "09", "10", "11", "12", "01", "02"]
 
-  def use_zeller(month, day)
-    zeller_class = Zeller_work.new(02, 2014) #pull the class input correct # of parameters ..not just anything...
+  end
+# arr.delete_at(2)
+  def self.use_zeller(month, day)
+    year = year.to_i
+    zeller_class = Zeller_work.new(month, year) #pull the class input correct # of parameters ..not just anything...
     first_day = zeller_class.zeller(month,1)#pull method from class
     print first_day
-    # puts first_day #outputs WEDS ..day of the week 01, 2014 starts ON
   end
 
   def display_February
     month_list = Month_work.month_names
-    # day_one = Month_work.use_zeller
+    day_one = Month_work.use_zeller(month, 1)
 
     if ARGV[0] == month_list[2]
       print "February #{year}".center(20)
@@ -136,6 +139,8 @@ attr_reader :year, :month
 
   def display_reg_months
     month_list = Month_work.month_names
+    day_one = Month_work.use_zeller(month, 1)
+    # month_list[]
 
     if ARGV[0] == month_list[1]
       print "January #{year}".center(20)
