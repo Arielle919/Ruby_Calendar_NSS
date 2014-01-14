@@ -5,33 +5,46 @@ attr_reader :year, :month
 
   def initialize(month, year)
     @month = month
-    @year = year
+    @year = year.to_i
   end
 
   def self.month_names
-    months = ["0", "01","02", "03", "04", "05",
-    "06", "07", "08", "09", "10", "11","12"]
-    # months = ["03", "04", "05", "06", "07", "08",
-    #  "09", "10", "11", "12", "01", "02"]
+    # months = ["0","01","02", "03", "04", "05",
+    # "06", "07", "08", "09", "10", "11","12"]
 
+    # months = ["January","February","March","April","May","June","July","August",
+    #   "September","October","November","December"]
+
+    months = ["03", "04", "05", "06", "07", "08",
+     "09", "10", "11", "12", "01", "02"]
   end
+
 # arr.delete_at(2)
-  def self.use_zeller(month, day)
-    year = year.to_i
+  def use_zeller(month, day)
+    @month = month
+    day = 1
+    @year = year
+    year.to_i
     zeller_class = Zeller_work.new(month, year) #pull the class input correct # of parameters ..not just anything...
     first_day = zeller_class.zeller(month,1)#pull method from class
     print first_day
   end
 
   def display_February
-    month_list = Month_work.month_names
-    day_one = Month_work.use_zeller(month, 1)
+    days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 
-    if ARGV[0] == month_list[2]
+     #  months = ["03", "04", "05", "06", "07", "08",
+     # "09", "10", "11", "12", "01", "02"]
+
+    # month_list = Month_work.month_names
+    day_one = Month_work.use_zeller(month, 1)
+    # startday = days.index(day_one)
+
+    if ARGV[0] == "02"
       print "February #{year}".center(20)
     end
 
-    if month == month_list[2] && "#{year}".to_i % 400 != 0 && "#{year}".to_i % 4 != 0
+    if month == "02" && "#{year}".to_i % 400 != 0 && "#{year}".to_i % 4 != 0
       print"\nSu\sMo\sTu\sWe\sTh\sFr\sSa\n"
         i = 0
         loop do
@@ -60,7 +73,7 @@ attr_reader :year, :month
           print "#{i}".center(3)
           break if i >= 28
         end
-    elsif month == month_list[2] && "#{year}".to_i % 4 == 0 && "#{year}".to_i % 400 != 0
+    elsif month == "02" && "#{year}".to_i % 4 == 0 && "#{year}".to_i % 400 != 0
       print "\nSu\sMo\sTu\sWe\sTh\sFr\sSa\n"
         i = 0
         loop do
@@ -96,7 +109,7 @@ attr_reader :year, :month
           print "#{i}".center(3)
           break if i >= 29
         end
-    elsif month == month_list[2] && "#{year}".to_i % 400 == 0 && "#{year}".to_i % 4 == 0
+    elsif month == "02" && "#{year}".to_i % 400 == 0 && "#{year}".to_i % 4 == 0
       print "\nSu\sMo\sTu\sWe\sTh\sFr\sSa\n"
         i = 0
         loop do
@@ -213,7 +226,7 @@ attr_reader :year, :month
           print "#{i}".center(3)
           break if i >= 31
         end
-      when "04","06","06","11"
+      when "04","06","06","09","11"
         print"\nSu\sMo\sTu\sWe\sTh\sFr\sSa\n"
         i = 0
         loop do

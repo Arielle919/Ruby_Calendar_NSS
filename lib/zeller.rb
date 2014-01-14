@@ -24,9 +24,9 @@ class Zeller_work
     k = yr % 100
     x = yr / 100
     formula = (h + (((13*mo) - 1) / 5).floor + k + (k/4).floor + (x/4).floor - (2*x)) % 7
-    # weekdays[formula]
+    weekdays[formula]
     # first_day = weekdays[formula]
-    print formula
+    # print formula
 
 
   end
