@@ -27,22 +27,30 @@ attr_reader :year, :month
     month_name = MONTHS[@month.to_i - 1]
     first_line = "#{month_name} #{@year}".center(20).rstrip
     second_line = "Su Mo Tu We Th Fr Sa"
-    days = []
+    days_top = []
     i = 0
     loop do
-      i += 01
-      days += [" #{i}"]
+      i += 1
+      days_top += [" #{i}"]#add extra space for 1 digit #'s
       break if i >= 9
     end
+    days_btm = []
+    i = 9
+    loop do
+      i += 1
+      days_btm += ["#{i}"]
+      break if i >= 31
+    end
+
+    all_days = days_top | days_btm #combining 2 arrays w/ union
 
     output = []
     output.unshift(second_line).unshift(first_line)
 
-    output.each_slice(1) { |line|
+    output.each_slice(1) { |line| #Header and weekday rows
       puts line.join
     }
-
-    days.each_slice(7) { |day|
+    all_days.each_slice(7) { |day|
       puts day.join(" ")
     }
 
