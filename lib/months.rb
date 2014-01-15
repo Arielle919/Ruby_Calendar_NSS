@@ -18,7 +18,6 @@ attr_reader :year, :month
     year.to_i
     zeller_class = Zeller_work.new(month, year) #pull the class input correct # of parameters ..not just anything...
     first_day = zeller_class.zeller(month,1)#pull method from class
-    # print first_day
   end
 
   def display_months
@@ -28,6 +27,13 @@ attr_reader :year, :month
     month_name = MONTHS[@month.to_i - 1]
     first_line = "#{month_name} #{@year}".center(20).rstrip
     second_line = "Su Mo Tu We Th Fr Sa"
+    days = []
+    i = 0
+    loop do
+      i += 1
+      days += [i]
+      break if i >= 31
+    end
 
     output = []
     output.unshift(second_line).unshift(first_line)
@@ -35,7 +41,7 @@ attr_reader :year, :month
     output.each_slice(1) { |x|
       puts x.join
     }
-    # print output
+
   end
 
 end
