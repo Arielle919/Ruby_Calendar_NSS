@@ -50,10 +50,23 @@ attr_reader :year, :month
     output.each_slice(1) { |line| #Header and weekday rows
       puts line.join
     }
+
+    day_one = 3 if first_day = "Wednesday"
+
+    day_one.times {all_days.unshift("  ")}
     all_days.each_slice(7) { |day|
       puts day.join(" ")
     }
 
+    #stopped here.. first_day = works but first_day == doesn't :()
   end
+
+  # def self.weds
+  #   pull_month = Month_works.new(@month, @year)
+  #   firstday = pull_month.use_zeller(@month, @year)
+  #   firstday = 3 if firstday == "Wednesday"
+  #   print firstday.to_i
+
+  # end
 
 end
