@@ -24,8 +24,9 @@ attr_reader :year, :month
   def display_months
     pull_month_class = Month_works.new(month, year)
     first_day = pull_month_class.use_zeller(month, year)
-    # month_name = MONTHS[@month]
-    first_line = "#{month} #{@year}".center(20).rstrip
+
+    month_name = MONTHS[@month.to_i - 1]
+    first_line = "#{month_name} #{@year}".center(20).rstrip
     second_line = "Su Mo Tu We Th Fr Sa"
 
     output = []
