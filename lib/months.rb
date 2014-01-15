@@ -30,16 +30,20 @@ attr_reader :year, :month
     days = []
     i = 0
     loop do
-      i += 1
-      days += [i]
-      break if i >= 31
+      i += 01
+      days += [" #{i}"]
+      break if i >= 9
     end
 
     output = []
     output.unshift(second_line).unshift(first_line)
 
-    output.each_slice(1) { |x|
-      puts x.join
+    output.each_slice(1) { |line|
+      puts line.join
+    }
+
+    days.each_slice(7) { |day|
+      puts day.join(" ")
     }
 
   end
